@@ -105,9 +105,11 @@ button {
 }
 
 .today-button {
+  border: 1px solid var(--today-border, transparent);
   padding: 0 18px;
   font-weight: 700;
   background: var(--today-color, var(--button));
+  color: var(--today-text, var(--button-text));
 }
 
 .icon-button:hover,
@@ -116,8 +118,8 @@ button {
 }
 
 .today-button:hover {
-  background: var(--today-color, var(--button-hover));
-  filter: brightness(0.92);
+  background: var(--today-hover, var(--today-color, var(--button-hover)));
+  filter: none;
 }
 
 .icon-button:active,
@@ -161,6 +163,7 @@ button {
 
 .day-card {
   --day-color: #b42318;
+  --day-solid: #b42318;
   --day-soft: #fff1f0;
   --day-border: #b42318;
   position: relative;
@@ -185,7 +188,7 @@ button {
 .day-card.is-today {
   border-color: var(--day-color);
   background: linear-gradient(180deg, var(--day-soft) 0, #ffffff 96px);
-  box-shadow: 0 0 0 3px rgba(28, 95, 212, 0.2), 0 18px 44px rgba(21, 32, 55, 0.16);
+  box-shadow: 0 0 0 3px var(--day-soft), 0 18px 44px rgba(21, 32, 55, 0.12);
 }
 
 .day-card.is-today::before {

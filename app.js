@@ -17,13 +17,13 @@
   ];
 
   const dayTheme = [
-    { color: "#b42318", soft: "#fff1f0", border: "#b42318" },
-    { color: "#b45309", soft: "#fff7ed", border: "#b45309" },
-    { color: "#8a6a00", soft: "#fff9db", border: "#8a6a00" },
-    { color: "#137333", soft: "#eaf7ee", border: "#137333" },
-    { color: "#0969da", soft: "#edf5ff", border: "#0969da" },
-    { color: "#5145cd", soft: "#f0efff", border: "#5145cd" },
-    { color: "#7e22ce", soft: "#f7edff", border: "#7e22ce" }
+    { solid: "#b42318", color: "rgba(180, 35, 24, 0.68)", hover: "rgba(180, 35, 24, 0.16)", soft: "rgba(180, 35, 24, 0.07)", border: "rgba(180, 35, 24, 0.34)" },
+    { solid: "#b45309", color: "rgba(180, 83, 9, 0.68)", hover: "rgba(180, 83, 9, 0.16)", soft: "rgba(180, 83, 9, 0.07)", border: "rgba(180, 83, 9, 0.34)" },
+    { solid: "#8a6a00", color: "rgba(138, 106, 0, 0.68)", hover: "rgba(138, 106, 0, 0.16)", soft: "rgba(138, 106, 0, 0.07)", border: "rgba(138, 106, 0, 0.34)" },
+    { solid: "#137333", color: "rgba(19, 115, 51, 0.68)", hover: "rgba(19, 115, 51, 0.16)", soft: "rgba(19, 115, 51, 0.07)", border: "rgba(19, 115, 51, 0.34)" },
+    { solid: "#0969da", color: "rgba(9, 105, 218, 0.68)", hover: "rgba(9, 105, 218, 0.16)", soft: "rgba(9, 105, 218, 0.07)", border: "rgba(9, 105, 218, 0.34)" },
+    { solid: "#5145cd", color: "rgba(81, 69, 205, 0.68)", hover: "rgba(81, 69, 205, 0.16)", soft: "rgba(81, 69, 205, 0.07)", border: "rgba(81, 69, 205, 0.34)" },
+    { solid: "#7e22ce", color: "rgba(126, 34, 206, 0.68)", hover: "rgba(126, 34, 206, 0.16)", soft: "rgba(126, 34, 206, 0.07)", border: "rgba(126, 34, 206, 0.34)" }
   ];
 
   const elements = {
@@ -673,6 +673,7 @@
     card.style.setProperty("--day-color", dayTheme[index].color);
     card.style.setProperty("--day-soft", dayTheme[index].soft);
     card.style.setProperty("--day-border", dayTheme[index].border);
+    card.style.setProperty("--day-solid", dayTheme[index].solid);
 
     headingWrap.appendChild(title);
     headingWrap.appendChild(date);
@@ -720,7 +721,10 @@
 
     elements.weekCode.textContent = isoWeek.code;
     elements.weekRange.textContent = `${formatRangeDate(currentWeekStart)} - ${formatRangeDate(weekEnd)}`;
-    elements.todayButton.style.setProperty("--today-color", dayTheme[todayIndex].color);
+    elements.todayButton.style.setProperty("--today-color", dayTheme[todayIndex].soft);
+    elements.todayButton.style.setProperty("--today-hover", dayTheme[todayIndex].hover);
+    elements.todayButton.style.setProperty("--today-border", dayTheme[todayIndex].border);
+    elements.todayButton.style.setProperty("--today-text", dayTheme[todayIndex].solid);
     elements.nextWeek.disabled = forwardOffset >= MAX_FORWARD_WEEKS;
     elements.daysGrid.textContent = "";
 
